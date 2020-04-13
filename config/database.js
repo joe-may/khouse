@@ -1,7 +1,13 @@
 const mongoose = require('mongoose')
+require('dotenv').config();
+
+// mongoose.connect(process.env.DATABASE_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   });
 
 mongoose.connect(
-    'mongodb://localhost/flights', 
+    process.env.DATABASE_URL, 
     {
         useNewUrlParser: true, 
         useCreateIndex: true, 
@@ -10,5 +16,7 @@ mongoose.connect(
 )
 
 mongoose.connection.on('connected', () => {
-    console.log('Connected to MongoDB')
+    console.log(`Mongoose connected to: ${process.env.DATABASE_URL}`);
 }) 
+
+module.exports = mongoose;
