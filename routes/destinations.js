@@ -8,6 +8,6 @@ function isLoggedIn(req, res, next) {
     res.redirect('/auth/google');
   }
 
-router.post('/flights/:id/destinations', destinationsCtrl.create)
+router.post('/listings/:id/destinations', isLoggedIn, destinationsCtrl.create)
 
 module.exports = router

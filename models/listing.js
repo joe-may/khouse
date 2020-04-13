@@ -13,23 +13,20 @@ const destinationSchema = new Schema({
     timestamps: true
 })
 
-const flightSchema = new Schema({
-    airline: {
+const listingSchema = new Schema({
+    date: {
         type: String,
-        enum: ['American', 'Southwest', 'United']
+        
     },
-    airport: {
+    title: {
         type: String,
-        enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
-        default: 'DEN'
+        
     }, 
-    flightNo: {
+    budget: {
         type: Number,
-        require: true,
-        min: 10,
-        max: 9999
+        
     },
-    departs: {
+    location: {
         type: Date,
         default: () => {
             const date = new Date()
@@ -42,4 +39,4 @@ const flightSchema = new Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('Flight', flightSchema)
+module.exports = mongoose.model('Listing', listingSchema)

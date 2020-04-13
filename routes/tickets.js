@@ -7,7 +7,7 @@ function isLoggedIn(req, res, next) {
     res.redirect('/auth/google');
   }
 
-router.get('/flights/:id/tickets/new', ticketsCtrl.new)
-router.post('/flights/:id/tickets', isLoggedIn, ticketsCtrl.create)
+router.get('/listings/:id/tickets/new', ticketsCtrl.new)
+router.post('/listings/:id/tickets', isLoggedIn, ticketsCtrl.create)
 
 module.exports = router

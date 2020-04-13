@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>New Listing</title>
+</head>
+<%- include('../partials/header') %>
+
+<form class="new-form" action="/listings" method="POST">
+  <label>Title:
+    <input class="entry" type="text" name="departs">
+    </label><br>
+  <label>Description:
+    <input class="entry" type="Text" name="departs">
+  </label><br>
+  <label>Budget:
+    <input class="entry" type="number" name="listingNo">
+  </label><br>
+  <label>Date & Time:
+    <input class="entry" type="datetime-local" name="departs">
+  </label><br>
+  <input class="entry" type="submit" value="Add Listing">
+</form>
+
+<%- include('../partials/footer') %>

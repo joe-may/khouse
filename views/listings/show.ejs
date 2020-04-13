@@ -1,0 +1,19 @@
+<%-include('../partials/header') %>
+
+<section id="show-page">
+    <div>date:</div>
+    <div><%= listing.title %></div>
+    <div>title:</div>
+    <div><%= listing.date %></div>
+    <div>budget:</div>
+    <div><%= listing.budget %></div>
+    <div>location:</div>
+    <div><%= listing.location %></div>
+   
+</section>
+<br><br><br>
+<div class="ticket-button"><a href="/listings/<%= listing._id %>/tickets/new" <%- title === 'ADD MORE' ? 'class="active"' : '' %>>ADD MORE</a></div>
+
+<br><br><br>
+
+<%- include('../partials/footer') %>

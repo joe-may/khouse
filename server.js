@@ -22,11 +22,11 @@ require('./config/passport');
 
 // require our routes
 var indexRoutes = require('./routes/index');
-var flightsRoutes = require('./routes/flights');
+var listingsRoutes = require('./routes/listings');
 
 // var methodOverride = require('method-override');
 var indexRouter = require('./routes/index');
-var flightsRouter = require('./routes/flights');
+var listingsRouter = require('./routes/listings');
 const destinationsRouter = require('./routes/destinations')
 const ticketsRouter = require('./routes/tickets')
 
@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   session({
-  secret: 'SEIRocks!',
+  secret: 'hello',
   resave: false,
   saveUninitialized: true
 }));
@@ -50,7 +50,7 @@ app.use(methodOverride('_method'));
 
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
-app.use('/flights', flightsRouter);
+app.use('/listings', listingsRouter);
 app.use('/', destinationsRouter)
 app.use('/', ticketsRouter)
 

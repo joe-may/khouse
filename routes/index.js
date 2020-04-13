@@ -4,7 +4,7 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/flights');
+  res.redirect('/listings');
 });
 
 
@@ -18,10 +18,29 @@ router.get('/auth/google', passport.authenticate(
  router.get('/Kluboauth', passport.authenticate(
   'google',
   {
-    successRedirect : '/students',
-    failureRedirect : '/students'
+    successRedirect : '/listings',
+    failureRedirect : '/listings'
   }
 ));
+
+// Google OAuth login route
+// router.get('/auth/google', passport.authenticate(
+//   'google',
+//   { scope: ['profile', 'email'] }
+// ));
+// // Google OAuth callback route
+// router.get('/oauth2callback', passport.authenticate(
+//   'google',
+//   {
+//     successRedirect : '/listings',
+//     failureRedirect : '/listings'
+//   }
+// ));
+// // OAuth logout route
+// router.get('/logout', function(req, res){
+//   req.logout();
+//   res.redirect('/students');
+// });
 
 
 

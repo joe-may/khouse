@@ -11,21 +11,21 @@
 <table id="list">
     <thead>
       <tr>
-        <th>Airline</th>
-        <th>Airport</th>
-        <th>Flight Number</th>
-        <th>Departs: </th>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Budget</th>
+        <th>Location</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <% flights.forEach( (f) => { %>
+      <% listing.forEach( (l) => { %>
         <tr>
-          <td><%= f.airline %></td>
-          <td><%= f.airport %></td>
-          <td><%= f.flightNo %></td>
-          <td><%= f.departs %></td>
-          <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
+          <td><%= l.date %></td>
+          <td><%= l.title %></td>
+          <td><%= l.budget %></td>
+          <td><%= l.location %></td>
+          <td><a href="/listings/<%= l._id %>">DETAILS</a></td>
         </tr>
       <% }); %>
     </tbody>

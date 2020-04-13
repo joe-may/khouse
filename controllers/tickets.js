@@ -1,20 +1,20 @@
 const Ticket = require('../models/ticket')
-const Flight = require('../models/flight')
+const Listing = require('../models/listing')
 
 const newTicket = (req, res) => {
-    Flight.findById(req.params.id, (err, flight) => {
+    Listing.findById(req.params.id, (err, listing) => {
         res.render('tickets/new', {
             title: 'Add Ticket',
-            flight
+            listing
         })
     })
 }
 
 const create = (req, res) => {
-    flightId = req.params.id
-    req.body.flight = flightId
+    listingId = req.params.id
+    req.body.listing = listingId
     Ticket.create(req.body, (err, ticket) => {
-        res.redirect(`/flights/${flightId}`)
+        res.redirect(`/listings/${listingId}`)
     })
 }
 
