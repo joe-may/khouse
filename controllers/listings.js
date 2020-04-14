@@ -3,7 +3,8 @@ const Ticket = require('../models/ticket')
 
 function index(req, res) {
   Listing.find({}, function(err, listing) {
-    res.render('listings/index', { title: 'All Listings', listing })
+    res.render('listings/index', { title: 'All Listings', listing
+ })
   })
 }
 
@@ -28,16 +29,28 @@ function create(req, res) {
   }
   const listing = new Listing(req.body)
   listing.save(function(err) {
-    if (err) return res.redirect('/listings/new')
-    res.redirect(`/listings`)
+    if (err) {
+      console.log('stay on this page')
+      return res.redirect('/listings/new')
+    } else {
+      console.log('dashboard')
+      res.redirect(`/listings`)
+    }
   })
 }
-
-
+function delListing(req, res, next) {
+  Student.findOne({'listings._id': req.params.id}, function(err, student) {
+    student.facts.id(req.params.id).remove();
+    student.save(function(err) {
+      res.redirect('/listings');
+    });
+  });
+}
 module.exports = {
   index,
   show,
   new: newListing,
   create, 
+  delListing
 }
 

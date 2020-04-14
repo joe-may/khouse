@@ -1,12 +1,11 @@
-var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 const methodOverride = require('method-override');
-require('./config/database')
+
 
 // load the env vars
 require('dotenv').config();
@@ -24,17 +23,11 @@ require('./config/passport');
 var indexRoutes = require('./routes/index');
 var listingsRoutes = require('./routes/listings');
 
-// var methodOverride = require('method-override');
-var indexRouter = require('./routes/index');
-var listingsRouter = require('./routes/listings');
-const destinationsRouter = require('./routes/destinations')
-const ticketsRouter = require('./routes/tickets')
-
-var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.json());
@@ -42,32 +35,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   session({
-  secret: 'hello',
+  secret: 'SEI Rocks!',
   resave: false,
   saveUninitialized: true
 }));
-app.use(methodOverride('_method'));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // mount all routes with appropriate base paths
-app.use('/', indexRouter);
-app.use('/listings', listingsRouter);
-app.use('/', destinationsRouter)
-app.use('/', ticketsRouter)
+app.use('/', indexRoutes);
+app.use('/listings', listingsRoutes);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// invalid request, send 404 page
+app.use(function(req, res) {
+  res.status(404).send('Cant find that!');
 });
 
 module.exports = app;

@@ -25,10 +25,17 @@
           <td><%= l.title %></td>
           <td><%= l.budget %></td>
           <td><%= l.location %></td>
-          <td><a href="/listings/<%= l._id %>">DETAILS</a></td>
+          <td><a href="/listings/<%= l._id %>">DETAILS</a>
+            <form action="/listings/<%= l._id %>?_method=DELETE" method="POST" class="secondary-content">
+              <button type="submit" class="btn-small red-text">X</button>
+              <form action="/listings/<%= l._id %>?_method=POST" method="POST" class="secondary-content">
+                <button type="submit" class="btn-small white-text">Submit</button>
+            </form>
+
+          </td>
         </tr>
       <% }); %>
     </tbody>
   </table>
-
+  
 <%- include('../partials/footer') %>
