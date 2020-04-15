@@ -20,17 +20,19 @@
       </tr>
     </thead>
     <tbody>
-      <% listing.forEach( (l) => { %>
+      <% listings.forEach( (l) => { %>
         <tr>
           <td><%= l.date %></td>
           <td><%= l.title %></td>
           <td><%= l.budget %></td>
           <td><%= l.location %></td>
-          <td><a href="/listings/show/<%= l._id %>">DETAILS</a>
+          <td><a href="/listings/<%= l._id %>">DETAILS</a>
             
-            <form action="/listings/<%= l._id %>?_method=DELETE" method="DELETE" class="secondary-content">
+            <form action="/listings/<%= l._id %>?_method=DELETE" method="POST" class="secondary-content">
               <button type="submit" class="btn-small red-text">X</button>
-
+              
+            </form>
+            
               <form action="/listings/<%= l._id %>?_method=POST" method="POST" class="secondary-content">
                 <button type="submit" class="btn-small white-text">Submit</button>
             </form>

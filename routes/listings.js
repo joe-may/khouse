@@ -9,18 +9,19 @@ function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();
     res.redirect('/auth/google');
   }
-  // Google OAuth callback route
- router.get('/Kluboauth', passport.authenticate(
-  'google',
-  {
-    successRedirect : '/listings',
-    failureRedirect : '/listings'
-  }
-));
+//   // Google OAuth callback route
+//  router.get('/Kluboauth', passport.authenticate(
+//   'google',
+//   {
+//     successRedirect : '/listings',
+//     failureRedirect : '/listings'
+//   }
+// ));
 
 router.get('/', listingsCtrl.index)
 router.get('/new', listingsCtrl.new)
 router.get('/:id', listingsCtrl.show)
+router.delete('/:id', listingsCtrl.delListing)
 // router.post('/', listingsCtrl.create)
 router.post('/', isLoggedIn, listingsCtrl.create)
 
