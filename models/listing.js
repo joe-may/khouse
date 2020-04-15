@@ -1,40 +1,31 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const destinationSchema = new Schema({
-    airport: {
-        type: String,
-        enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
-    }, 
-    arrival : {
-        type: Date
-    }
-}, {
-    timestamps: true
-})
+
 
 const listingSchema = new Schema({
     date: {
         type: String,
         
+        
     },
     title: {
         type: String,
         
+         
     }, 
     budget: {
-        type: Number,
+        type: String,
         
     },
     location: {
-        type: Date,
+        type: String,
         default: () => {
             const date = new Date()
-            date.setFullYear(date.getFullYear() + 1)
+            date.setFullYear(date.getFullYear())
             return date
         }
     },
-    destinations: [destinationSchema]
 }, {
     timestamps: true
 })
