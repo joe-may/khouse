@@ -36,11 +36,11 @@ router.get('/auth/google', passport.authenticate(
 //     failureRedirect : '/listings'
 //   }
 // ));
-// // OAuth logout route
-// router.get('/logout', function(req, res){
-//   req.logout();
-//   res.redirect('/students');
-// });
+// OAuth logout route
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/listings');
+});
 
 
 
