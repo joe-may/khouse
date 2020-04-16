@@ -6,19 +6,24 @@ const Schema = mongoose.Schema
 const listingSchema = new Schema({
     date: {
         type: String,
+        require: true,
     },
     title: {
         type: String,
+        require: true,
     }, 
     budget: {
         type: String,
+        require: true,
     },
     location: {
         type: String,
+        require: true,
     },
     member: {
         type: Schema.Types.ObjectId, 
-        ref: 'Member' 
+        ref: 'Member',
+        require: true,
     }
     
     

@@ -16,28 +16,32 @@
         <th>Title</th>
         <th>Budget</th>
         <th>Location</th>
-        <th></th>
+        
       </tr>
     </thead>
     <tbody>
       <% listings.forEach( (l) => { %>
+       
         <tr>
           <td><%= l.date %></td>
           <td><%= l.title %></td>
           <td><%= l.budget %></td>
           <td><%= l.location %></td>
           <td><a href="/listings/<%= l._id %>">DETAILS</a>
+           
             
+            <% if (user){ %>
+              <% if (l.member.toString() === user._id.toString()) { %>
             <form action="/listings/<%= l._id %>?_method=DELETE" method="POST" class="secondary-content">
               <button type="submit" class="btn-small red-text">X</button>
-              
             </form>
-            
+            <% } %><% } %>
               <form action="/listings/<%= l._id %>?_method=POST" method="POST" class="secondary-content">
                 <button type="submit" class="btn-small white-text">Submit</button>
             </form>
           </td>
         </tr>
+        
       <% }); %>
     </tbody>
   </table>

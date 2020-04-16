@@ -22,7 +22,6 @@ router.get('/', listingsCtrl.index)
 router.get('/new', listingsCtrl.new)
 router.get('/:id', listingsCtrl.show)
 router.delete('/:id', listingsCtrl.delListing)
-// router.post('/', listingsCtrl.create)
 router.post('/', isLoggedIn, listingsCtrl.create)
 
 module.exports = router;

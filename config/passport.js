@@ -1,6 +1,6 @@
 var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-var Member = require("../models/listing");
+var Member = require("../models/member");
 passport.use(
   new GoogleStrategy(
     {

@@ -2,7 +2,7 @@ const Listing = require('../models/listing')
 
 
 function index(req, res) {
-  console.log(req.user)
+  console.log('user',req.user)
   Listing.find({}, function(err, listings) {
     console.log(listings)
     res.render('listings/index', { 
@@ -14,7 +14,7 @@ function index(req, res) {
 }
 // function index(req, res) {
 //   Listing.find()
-//   .populate('member')
+// .populate('member')
 //   .exec(function(err, listings) {
 //     res.render('listings/index', { 
 //       title: 'All Listings', 
@@ -40,10 +40,12 @@ function newListing(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body)
+  console.log("!!!!!!!hgjh")
   // req.body.user = req.user._id; ///added this later
   Listing.create(req.body).then(function(listing){
     console.log(listing)
+    listing.member = req.user._id
+    listing.save()
     res.redirect(`/listings`)
   }).catch(err => {
     console.log(`caught the error: ${err}`);
