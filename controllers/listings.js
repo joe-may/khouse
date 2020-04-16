@@ -1,4 +1,5 @@
 const Listing = require('../models/listing')
+const Member = require('../models/member')
 
 
 function index(req, res) {
@@ -27,12 +28,16 @@ function index(req, res) {
 function show(req, res, next) {
     Listing.findById(req.params.id, (err, listing) => {
       Listing.find({listing: listing._id}, (err) => {
+        console.log(listing)
         res.render('listings/show', { 
-          title: 'Listing Details', listing
+          title: 'Listing Details', listing, 
+          user: req.user,
+          listing: listing
       })
     })
   })
 }
+
 
 function newListing(req, res) {
   res.render('listings/new', { title: 'Add Listing' })
@@ -76,10 +81,65 @@ function delListing(req, res, next) {
    res.redirect(`/listings`)
   })
 }
+
+function update(req, res) {
+  Listing.findById(req.params.id, (err, listing) => {
+    listing.date = req.body.date
+    listing.title = req.body.title
+    listing.budget = req.body.budget
+    listing.location = req.body.location
+    listing.save((err) => {
+      res.redirect(`/listings/${req.params.id}`);
+    })
+  })
+}
+// function update(req, res) {
+//   User.findById(req.user._id, function(err, user) {
+//     var herbi = user.herbs.id(req.params.id);
+//     herbi.name = req.body.name;
+//     herbi.benefits = req.body.benefits;
+//     herbi.uses = req.body.uses;
+//     user.save( function(err) {
+//       res.redirect(`/herbs/${req.params.id}`)
+//     })
+//     })} 
+
+function edit(req, res, next) {
+  Listing.findById(req.params.id, (err, listing) => {
+    Listing.find({listing: listing._id}, (err) => {
+      console.log(listing)
+      res.render('./listings/edit', { 
+        title: 'Edit listing',  
+        user: req.user,
+        listing
+    })
+  })
+})
+}
+
+function show(req, res, next) {
+  Listing.findById(req.params.id, (err, listing) => {
+    Listing.find({listing: listing._id}, (err) => {
+      console.log(listing)
+      res.render('listings/show', { 
+        title: 'Listing Details', listing, 
+        user: req.user,
+        listing: listing
+    })
+  })
+})
+}
+
+
+
 module.exports = {
   index,
   show,
   new: newListing,
   create, 
-  delListing
+  delListing,
+  update,
+  edit
 }
+
+

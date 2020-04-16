@@ -23,5 +23,7 @@ router.get('/new', listingsCtrl.new)
 router.get('/:id', listingsCtrl.show)
 router.delete('/:id', listingsCtrl.delListing)
 router.post('/', isLoggedIn, listingsCtrl.create)
+router.get('/:id/edit', listingsCtrl.edit);
+router.put('/update/:id', listingsCtrl.update)
 
 module.exports = router;
