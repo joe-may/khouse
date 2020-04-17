@@ -1,6 +1,7 @@
 # Klubhouse Gig Board
-This game is an prototype MVP of one of the many mini games in the narrative-driven educational game for children, StudyPup & the Quest for the Mystic Badges. This game has just finished its pre-production stages and has gone into development as part of the StudyPup series teaching children elementary-level math and spelling. 
+The Klubhouse Gig Board is a place where users can post listings seeking live entertainment for events. This app has the capability of logging in, creating a listing (by filling out a form), updating, and deleting your posts. 
 
+The Klubhouse Gig Board’s ultimate purpose is for entertainers to then surf through the potential job opportunities and contact the poster about filling the position! 
 
 ![](https://i.imgur.com/yMKSiFt.png)
 ![](https://i.imgur.com/hVhocrx.png)
