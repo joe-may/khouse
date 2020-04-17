@@ -20,6 +20,12 @@ const listingSchema = new Schema({
         type: String,
         require: true,
     },
+    name: {
+      type: String,
+    },
+    contact: {
+      type: String,
+    },
     member: {
         type: Schema.Types.ObjectId, 
         ref: 'Member',

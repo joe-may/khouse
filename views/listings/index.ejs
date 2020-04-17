@@ -1,15 +1,6 @@
 <%- include('../partials/header') %>
-<head>
-<!-- Google Icon Fonts used by Materialize -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- Materialize CSS Framework -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link rel="stylesheet" href="stylesheets/style.css" />
-<!-- JavaScript for Materialize -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</head>
-<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-<a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+<h1>Gig Board</h1>
+<div class="container">
 <table id="list">
     <thead>
       <tr>
@@ -28,16 +19,18 @@
           <td><%= l.title %></td>
           <td><%= l.budget %></td>
           <td><%= l.location %></td>
-          <td><a href="/listings/<%= l._id %>">DETAILS</a>
+          <td><a class="details" href="/listings/<%= l._id %>">DETAILS</a></td>
            
-            
+            <td class="delete">
             <% if (user){ %>
               <% if (l.member.toString() === user._id.toString()) { %>
             <form action="/listings/<%= l._id %>?_method=DELETE" method="POST" class="secondary-content">
-              <button type="submit" class="btn-small red-text">X</button>
+              <button type="submit" class="btn-small white-text">DELETE</button>
             </form>
+          </td>
+          <td class="edit">
             <form method=“GET” action="/listings/<%= l._id %>/edit">
-              <button type=“submit”>edit</button>
+              <button type=“submit” class="btn-small">edit</button>
               </form>
             <% } %><% } %>
           </td>
@@ -46,5 +39,6 @@
       <% }); %>
     </tbody>
   </table>
+  </div>
   
 <%- include('../partials/footer') %>

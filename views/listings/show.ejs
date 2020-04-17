@@ -1,20 +1,44 @@
 <%-include('../partials/header') %>
+<div class="container">
 
 <section id="show-page">
-    <div>date:</div>
-    <div><%= listing.date %></div>
-    <div>title:</div>
-    <div><%= listing.title %></div>
-    <div>budget:</div>
-    <div><%= listing.budget %></div>
-    <div>location:</div>
-    <div><%= listing.location %></div>
-   
-</section>
-<br><br><br>
-<div class="ticket-button"><a href="/listings/<%= listing._id %>/more/new" <%- title === 'ADD MORE' ? 'class="active"' : '' %>>ADD MORE</a></div>
+    <div class="container">
+        <form class="new-form" action="/listings" method="POST">
+          <label>date</label>
+              <br>
+              <%= listing.date %>
+              <br>
+              <br>
+          <label>title</label>
+             <br>
+            <%= listing.title %>
+             <br>
+             <br>
+             <label>budget</label>
+              <br>
+              <%= listing.budget %>
+              <br>
+              <br>
+          <label>location</label>
+             <br>
+            <%= listing.location %>
+             <br>
+             <br>
+             <label>name</label>
+             <br>
+            <%= listing.name %>
+             <br>
+             <br>
+             <label>contact</label>
+             <br>
+            <%= listing.contact %>
+             <br>
+             <br>
+          
+        </form>
+        </div>
 
 <br><br><br>
-
+</div>
 
 <%- include('../partials/footer') %>

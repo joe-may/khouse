@@ -7,7 +7,7 @@
     <title>New Listing</title>
 </head>
 <%- include('../partials/header') %>
-
+<div class="container"></div>
 <form class="new-form" action="/listings" method="POST">
   <label>date
     <input class="entry" type="text" name="date">
@@ -20,6 +20,12 @@
   </label><br>
   <label>location
     <input class="entry" type="Text" name="location">
+  </label><br>
+  <label>name
+    <input class="entry" type="Text" name="name">
+  </label><br>
+  <label>contact
+    <input class="entry" type="Text" name="contact">
   </label><br>
   <input class="entry" type="submit" value="Add Listing">
 </form>

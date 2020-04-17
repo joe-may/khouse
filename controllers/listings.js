@@ -88,6 +88,8 @@ function update(req, res) {
     listing.title = req.body.title
     listing.budget = req.body.budget
     listing.location = req.body.location
+    listing.name = req.body.name
+    listing.contact = req.body.contact
     listing.save((err) => {
       res.redirect(`/listings/${req.params.id}`);
     })

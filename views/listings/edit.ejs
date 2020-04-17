@@ -1,11 +1,13 @@
 <%- include('../partials/header') %>
 
-    <h4>Edit listing</h4>
+    
     <form action="/listings/update/<%=listing.id%>?_method=PUT" method="POST">
         date: <input type="text" name="date" value="<%=listing.date%>"/><br/>
         title: <input type="text" name="title" value="<%=listing.title%>"/><br/>
         budget: <input type="text" name="budget" value="<%=listing.budget%>"/><br/>
         location: <input type="text" name="location" value="<%=listing.location%>"/><br/>
+        name: <input type="text" name="name" value="<%=listing.name%>"/><br/>
+        contact: <input type="text" name="location" value="<%=listing.contact%>"/><br/>
         <input type="submit" value="Save Changes" class="waves-effect waves-light btn-small">
     </form>
 </body>

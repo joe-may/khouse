@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: thistle;
+} 
+
+header, footer, section {
+    font-family: 'Montserrat', sans-serif;
+    padding:30px;
+    text-align:center;
+}
+header img {
+    width:100%;
+    max-width:300px;
+}
+section {
+    padding:30px 10%;
+}
+
+img {
+    width: 550px;
+}
