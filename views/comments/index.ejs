@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<h1>Comments</h1>
+<div class="container">
+<table id="list">
+    <thead>
+      <tr>
+        <th>comment</th>
+        <th>user_id</th>
+        <th>listing_id</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <% comments.forEach( (c) => { %>
+       
+        <tr>
+          <td><%= c.dcomment %></td>
+          <td><%= c.user_id %></td>
+          <td><%= c.listing_id %></td>
+        </tr>
+        
+      <% }); %>
+    </tbody>
+  </table>
+  </div>
+  
+<%- include('../partials/footer') %>

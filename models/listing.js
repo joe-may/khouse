@@ -1,7 +1,22 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-
+const commentSchema = new Schema({
+    comment: {
+        type: String,
+    },
+    user_id: {
+        type: String,
+    }, 
+    listing_id: {
+        type: String,
+    },
+    user_name: {
+        type: String,
+    },
+}, {
+    timestamps: true
+})
 
 const listingSchema = new Schema({
     date: {
@@ -30,8 +45,8 @@ const listingSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'Member',
         require: true,
-    }
-    
+    },
+    comments: [commentSchema]
     
 }, {
     timestamps: true

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>New Comment</title>
+</head>
+<%- include('../partials/header') %>
+<div class="container"></div>
+<form class="new-form" action="/comments" method="POST">
+  <label>comment
+    <input class="entry" type="text" name="dcomment">
+  </label><br>
+
+  <input class="entry" type="submit" value="Add Comment">
+</form>
+
+<%- include('../partials/footer') %>

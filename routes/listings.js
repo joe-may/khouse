@@ -25,5 +25,6 @@ router.delete('/:id', listingsCtrl.delListing)
 router.post('/', isLoggedIn, listingsCtrl.create)
 router.get('/:id/edit', listingsCtrl.edit);
 router.put('/update/:id', listingsCtrl.update)
+router.post('/comments/:id',listingsCtrl.createcomment)
 
 module.exports = router;

@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+    
+    <form action="/comments/update/<%=comments.id%>?_method=PUT" method="POST">
+        date: <input type="text" name="date" value="<%=comments.date%>"/><br/>
+        title: <input type="text" name="title" value="<%=comments.title%>"/><br/>
+        budget: <input type="text" name="budget" value="<%=comments.budget%>"/><br/>
+        location: <input type="text" name="location" value="<%=comments.location%>"/><br/>
+        name: <input type="text" name="name" value="<%=comments.name%>"/><br/>
+        contact: <input type="text" name="contact" value="<%=comments.contact%>"/><br/>
+        <input type="submit" value="Save Changes" class="waves-effect waves-light btn-small">
+    </form>
+</body>
+
+</html>

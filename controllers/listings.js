@@ -132,6 +132,14 @@ function show(req, res, next) {
 })
 }
 
+function createcomment(req, res, next) {
+Listing.findById(req.params.id, (err, listing) => {
+  var comment = {comment: req.body.comment, user_id: req.user.id, listing_id: req.params.id, user_name: req.user.name }
+  listing.comments.push(comment)
+  listing.save()
+  res.redirect('/listings/' + listing._id)
+})
+}
 
 
 module.exports = {
@@ -141,7 +149,8 @@ module.exports = {
   create, 
   delListing,
   update,
-  edit
+  edit,
+  createcomment
 }
 
 
