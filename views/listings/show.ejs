@@ -36,24 +36,44 @@
              <br>
           
         </form>
+
         </div>
         <h2>Comments</h2>
         <ul>
             <% listing.comments.forEach( (c) => { %>
-       
-                
+
                   <li><%= c.comment %></li>
                   <li><%= c.user_name %></li>
                  
-                
-                
               <% }); %>
         </ul>
         <form action="/listings/comments/<%= listing._id %>" method="POST" autocomplete="off">
             <input type="text" name="comment">
-            <button type="submit">Enter email to submit</button>
+            <button type="submit">Enter a comment</button>
           </form>
-<br><br><br>
+          <table id="list">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Comment</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                <% listing.comments.forEach( (c) => { %>
+               
+                <tr>
+                  <td><%= c.user_name %></td>
+                  <td><%= c.comment %></td>
+        
+                    
+                    
+                  </td>
+                </tr>
+                
+              <% }); %>
+            </tbody>
+          </table>
 </div>
 
 <%- include('../partials/footer') %>
